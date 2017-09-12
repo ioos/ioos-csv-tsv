@@ -1,2 +1,2 @@
-# sos-guidelines-jekyll
-IOOS SOS Guidelines pages with Jekyll Documentation Theme
+# ioos-csv-tsv
+GitHub Pages for IOOS Convention for observation data encoding in CSV/TSV with Jekyll Documentation Theme
