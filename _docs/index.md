@@ -27,6 +27,7 @@ This document applies to the following **Data Value** types: **Scalar**, **Vecto
 
 >_**NOTES:**_  
 >  _1. This document does not address conventions for reporting multiple phenomena from different sensors from a single station in a single response. This remains an area to be discussed._ 
+>  
 >  _2. This document does not discuss other sampling feature types including regular grids, irregular grids, unstructured grids, or volumetric data. IOOS does not encode such data as CSV or TSV — instead, the binary NetCDF format with CF conventions is used._
 
 The described conventions are intended to be applied by the IOOS Sensor Observation Service (SOS) instances, but could be used to transmit and store CSV- or TSV-encoded data from other sources as well. 
