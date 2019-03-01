@@ -4,7 +4,7 @@ entries:
 - title: sidebar
   product: CSV/TSV Encoding <br>for Observation Data
   levels: three
-  version: 
+  version:
   folders:
 
   - title:
@@ -20,7 +20,7 @@ entries:
       output: pdf
       type: frontmatter
 
-  - title: "IOOS Encoding Conventions"
+  - title: IOOS Encoding Conventions
     output: web, pdf
 
     folderitems:
@@ -35,88 +35,88 @@ entries:
 
       subfolders:
 
-      - title: "General Encoding Conventions"
+      - title: General Encoding Conventions
         output: web
 
         subfolderitems:
 
-        - title: "Basic Structure and Conformance with RFC 4180"
+        - title: Basic Structure and Conformance with RFC 4180
           url: /index.html#basic-structure-and-conformance-with-rfc-4180
           output: web
 
-        - title: "MIME Types"
+        - title: MIME Types
           url: /index.html#mime-types
           output: web
 
-        - title: "Compression"
+        - title: Compression
           url: /index.html#compression
           output: web
 
-        - title: "Number and Order of Values"
+        - title: Number and Order of Values
           url: /index.html#number-and-order-of-values
           output: web
 
-        - title: "CSV Header Row and Initial Columns"
+        - title: CSV Header Row and Initial Columns
           url: /index.html#csv-encoding
           output: web
 
-        - title: "TSV Header Row and Initial Columns"
+        - title: TSV Header Row and Initial Columns
           url: /index.html#tsv-encoding
           output: web
 
-        - title: "Phenomenon-Specific Columns"
+        - title: Phenomenon-Specific Columns
           url: /index.html#phenomenon-specific-columns
           output: web
 
-        - title: "Use of CF Names"
+        - title: Use of CF Names
           url: /index.html#use-of-cf-names
           output: web
 
-        - title: "Time-Dependent Metadata"
+        - title: Time-Dependent Metadata
           url: /index.html#time-dependent-metadata
           output: web
 
-        - title: "Result Size"
+        - title: Result Size
           url: /index.html#result-size
           output: web
 
-        - title: "Empty Dataset"
+        - title: Empty Dataset
           url: /index.html#empty-dataset
           output: web
 
-      - title: "Conventions for Specific Observed Properties"
+      - title: Conventions for Specific Observed Properties
         output: web
 
         subfolderitems:
 
-        - title: "Overview"
+        - title: Overview
           url: /index.html#conventions-for-specific-observed-properties
           output: web
 
-        - title: "Temperature"
+        - title: Temperature
           url: /index.html#temperature
           output: web
 
-        - title: "Salinity"
+        - title: Salinity
           url: /index.html#salinity
           output: web
 
-        - title: "Sea Floor Depth (Tsunameter Water Level)"
+        - title: Sea Floor Depth (Tsunameter Water Level)
           url: /index.html#sea-floor-depth-tsunameter-water-level
           output: web
 
-        - title: "Water Surface Height (Tide Gauge Water Level)"
+        - title: Water Surface Height (Tide Gauge Water Level)
           url: /index.html#water-surface-height-tide-gauge-water-level
           output: web
 
-        - title: "Winds"
+        - title: Winds
           url: /index.html#winds
           output: web
 
-        - title: "Currents"
+        - title: Currents
           url: /index.html#currents
           output: web
 
-        - title: "Waves"
+        - title: Waves
           url: /index.html#waves
           output: web
