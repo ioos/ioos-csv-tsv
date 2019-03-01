@@ -2,9 +2,6 @@
 title: "IOOS Convention for observation data encoding in CSV/TSV"
 keywords: sample homepage
 tags: [getting_started]
-#sidebar: home_sidebar
-sidebar: mydoc_sidebar
-topnav: topnav
 toc: false
 #permalink: index.html
 summary: This document describes the conventions used by the Integrated Ocean Observing System (IOOS) program to encode observation data as plain text <b>Comma-Separated Values (CSV)</b> or <b>Tab-Separated Values (TSV)</b>
@@ -26,22 +23,22 @@ summary: This document describes the conventions used by the Integrated Ocean Ob
 This document applies to the following **Data Value** types: **Scalar**, **Vector**, **Multivalue**, and **Spectral**. This document applies to the following **Sampling Feature** types: **Point**, **Vertical Profile**, **Horizontal Profile**, **2D Trajectory**, **3D Trajectory**, and **Collection**.
 
 >_**NOTES:**_  
->  _1. This document does not address conventions for reporting multiple phenomena from different sensors from a single station in a single response. This remains an area to be discussed._ 
+>  _1. This document does not address conventions for reporting multiple phenomena from different sensors from a single station in a single response. This remains an area to be discussed._
 >  
 >  _2. This document does not discuss other sampling feature types including regular grids, irregular grids, unstructured grids, or volumetric data. IOOS does not encode such data as CSV or TSV — instead, the binary NetCDF format with CF conventions is used._
 
-The described conventions are intended to be applied by the IOOS Sensor Observation Service (SOS) instances, but could be used to transmit and store CSV- or TSV-encoded data from other sources as well. 
+The described conventions are intended to be applied by the IOOS Sensor Observation Service (SOS) instances, but could be used to transmit and store CSV- or TSV-encoded data from other sources as well.
 <br />
 
 ## **Revision History**{: style="color: crimson"}
 
-| Version | Description | Date 
+| Version | Description | Date
 |------------|-----------------|---------
-|1.0.0 |Original versions of separate CSV and TSV encoding specifications.	|2010-06-09 
-|1.0.0b |Both CSV and TSV specifications: minor editing; no change to specifications.	|2010-07-20 
-|1.0.0c |Both CSV and TSV specifications: update sample URLs to use production server instead of test server.	|2010-12-20 
-|1.0.1 |CSV specification: update Section 2.2 to use the MIME type 'text/csv' instead of 'text/csv;header=true' to reflect common practice and the examples in the document.	|2011-01-14 
-|1.1.0 |First version of the combined CSV and TSV encoding specification; minor editing to align the documents and encoding examples in the document.	|2012-01-16 
+|1.0.0 |Original versions of separate CSV and TSV encoding specifications.	|2010-06-09
+|1.0.0b |Both CSV and TSV specifications: minor editing; no change to specifications.	|2010-07-20
+|1.0.0c |Both CSV and TSV specifications: update sample URLs to use production server instead of test server.	|2010-12-20
+|1.0.1 |CSV specification: update Section 2.2 to use the MIME type 'text/csv' instead of 'text/csv;header=true' to reflect common practice and the examples in the document.	|2011-01-14
+|1.1.0 |First version of the combined CSV and TSV encoding specification; minor editing to align the documents and encoding examples in the document.	|2012-01-16
 
 
 ## **General Encoding Conventions**{: style="color: crimson"}
@@ -55,13 +52,13 @@ IOOS CSV responses shall use the basic structure defined in IETF RFC 4180, "Comm
  -  no comma after the last value, unless the last value is missing in which case the preceding comma is retained;
  -  space characters within each field are significant; do not add a space after each comma;
  -  double quotes around values that contain commas, spaces, line breaks or double quotes (escaped as ""). Optionally, double quotes may be added around other values.
- 
+
 IOOS TSV responses shall use the basic structure similar to the CSV responses:
  -  a line break (CR/LF) between each line;
  -  a TAB between each value;
  -  no TABs permitted in any value;
  -  two TABs in a row to designate a missing value;
- -  no TAB after the last value, unless the last value is missing in which case the preceding TAB is retained; 
+ -  no TAB after the last value, unless the last value is missing in which case the preceding TAB is retained;
  -  all characters within a value are significant (including spaces, commas, and quotes).
 
 <br>
@@ -139,7 +136,7 @@ The initial fields of each data row shall provide values for these quantities as
 
 _**station_id:METAVAR:TEXT:61 / sensor_id:METAVAR:TEXT:61**_
 :   These are the **station_id** and **sensor_id** with URNs as defined in the [IOOS Conventions for Observing Asset Identifiers](http://ioos.github.io/conventions-for-observing-asset-identifiers).
-     
+
 >**NOTE:**
 > These fields are named to provide consistency with ODV tools.
 
@@ -204,7 +201,7 @@ Conceptual illustration:
    Data from Station 2 at time 2 and depth 2
 ```
 
- 
+
 ## **Conventions for Specific Observed Properties**{: style="color: crimson"}
 
 In the following, the order and title of each IOOS mandatory column is specified. All mandatory columns must be included (with a null value if needed).
@@ -244,7 +241,7 @@ urn:ioos:station:wmo:41012:,urn:ioos:sensor:wmo:41012::watertemp1:,30.04,-80.55,
 urn:ioos:station:wmo:41012:,urn:ioos:sensor:wmo:41012::watertemp1:,30.04,-80.55,2008-08-01T02:50:00Z,0.60,27.60
 ```
 
-[**Sample TSV response**](http://sdf.ndbc.noaa.gov/sos/server.php?request=GetObservation&service=SOS&version=1.0.0&offering=urn:ioos:station:wmo:41012&observedproperty=Sea_Water_Temperature&responseformat=text/tab-separated-values): 
+[**Sample TSV response**](http://sdf.ndbc.noaa.gov/sos/server.php?request=GetObservation&service=SOS&version=1.0.0&offering=urn:ioos:station:wmo:41012&observedproperty=Sea_Water_Temperature&responseformat=text/tab-separated-values):
 
 ```
 station_id:METAVAR:TEXT:61   sensor_id:METAVAR:TEXT:61   latitude [degree]   longitude [degree]  time_ISO8601    depth [m]   sea_water_temperature [C]
@@ -264,7 +261,7 @@ IOOS Mandatory fields:
 
 IOOS Optional fields:
 
-   - _none_ 
+   - _none_
 
 [**Sample CSV response**](http://sdf.ndbc.noaa.gov/sos/server.php?request=GetObservation&service=SOS&version=1.0.0&offering=urn:ioos:station:wmo:41012&observedproperty=Sea_Water_Salinity&responseformat=text/csv):
 
@@ -335,7 +332,7 @@ IOOS Optional fields:
 
    -  _none_
 
->**NOTE:** 
+>**NOTE:**
 >The **datum_id** is an identifier for the vertical datum to which the water-level measurements are referenced.  Values presently in use at IOOS are:
 >
 >_urn:x-noaa:def:datum:noaa::IGLD (International Great Lakes Datum)_
@@ -433,13 +430,13 @@ IOOS Optional fields:
    -  _**Pct Rejected (%)**_
    -  _**Pct Bad (%)**_
    -  _**Echo Intensity Beam1 (count)**_
-   -  _**Echo Intensity Beam2 (count)**_ 
-   -  _**Echo Intensity Beam3 (count)**_ 
+   -  _**Echo Intensity Beam2 (count)**_
+   -  _**Echo Intensity Beam3 (count)**_
    -  _**Echo Intensity Beam4 (count)**_
-   -   _**Correlation Magnitude Beam1 (count)**_ 
-   -   _**Correlation Magnitude Beam2 (count)**_ 
-   -    _**Correlation Magnitude Beam3 (count)**_ 
-   -  _**Correlation Magnitude Beam4 (count)**_ 
+   -   _**Correlation Magnitude Beam1 (count)**_
+   -   _**Correlation Magnitude Beam2 (count)**_
+   -    _**Correlation Magnitude Beam3 (count)**_
+   -  _**Correlation Magnitude Beam4 (count)**_
    -  _**Quality Flags**_
 <br />
 
@@ -502,12 +499,12 @@ urn:ioos:station:wmo:42361: urn:ioos:sensor:wmo:42361::adcp0:   27.55   -92.49  
 
 Waves data may be reported either using only the list of mandatory fields or by including complete spectral information in the optional fields.
 
-The spectral information includes spectral energy, directions and polar coordinates at a number of frequencies. The number of frequencies in the spectrum shall be indicated in each data row; the remaining fields shall provide values for each spectral quantity at each frequency. Each spectral quantity shall be expressed as a list of values separated by semicolons within a single pair of commas. (That is, rather than using a separate column for each value, we pack lists of values for the same quantity as a semicolon-delimited string). 
+The spectral information includes spectral energy, directions and polar coordinates at a number of frequencies. The number of frequencies in the spectrum shall be indicated in each data row; the remaining fields shall provide values for each spectral quantity at each frequency. Each spectral quantity shall be expressed as a list of values separated by semicolons within a single pair of commas. (That is, rather than using a separate column for each value, we pack lists of values for the same quantity as a semicolon-delimited string).
 
 >**NOTES:**
 >  - Illustrative example in the simplified case of 3 frequencies (at 0.04, 0.05 and 0.06 Hz) each of bandwidth 0.005 Hz:
 ```
-        3,0.04;0.05;0.06,0.005;0.005;0.005 
+        3,0.04;0.05;0.06,0.005;0.005;0.005
 ```
 >  - The spectral quantities are packed because a assigning a separate column (comma-delimited value) for each number causes the number of columns to exceed the maximum (256) supported by typical spreadsheet applications)
 
