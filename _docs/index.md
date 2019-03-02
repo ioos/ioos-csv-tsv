@@ -14,7 +14,7 @@ summary: This document describes the conventions used by the Integrated Ocean Ob
 
 
 
-## **Introduction**{: style="color: crimson"}
+## **Introduction**
 
 **CSV** means that the data are expressed as a sequence of multiple data values or metadata attributes separated by commas on a single line of text. Each line of text represents a single point in time and space. Multiple lines are used for additional times or locations. **CSV** data can be thought of as an array of rows (one per line) and columns (one per value in each line).
 
@@ -30,7 +30,7 @@ This document applies to the following **Data Value** types: **Scalar**, **Vecto
 The described conventions are intended to be applied by the IOOS Sensor Observation Service (SOS) instances, but could be used to transmit and store CSV- or TSV-encoded data from other sources as well.
 <br />
 
-## **Revision History**{: style="color: crimson"}
+## **Revision History**
 
 | Version | Description | Date
 |------------|-----------------|---------
@@ -41,9 +41,9 @@ The described conventions are intended to be applied by the IOOS Sensor Observat
 |1.1.0 |First version of the combined CSV and TSV encoding specification; minor editing to align the documents and encoding examples in the document.	|2012-01-16
 
 
-## **General Encoding Conventions**{: style="color: crimson"}
+## **General Encoding Conventions**
 
-### **Basic Structure and Conformance with RFC 4180**{: style="color: crimson"}
+### **Basic Structure and Conformance with RFC 4180**
 
 IOOS CSV responses shall use the basic structure defined in IETF RFC 4180, "Common Format and MIME Type for Comma-Separated Values (CSV) Files" (Shafranovich, 2005), including:
  -  a line break (CR/LF) between each line;
@@ -63,7 +63,7 @@ IOOS TSV responses shall use the basic structure similar to the CSV responses:
 
 <br>
 
-### **MIME Types**{: style="color: crimson"}
+### **MIME Types**
 
 The MIME type of the response shall be indicated by the originating server using the HTTP Content-Type header.
 
@@ -83,19 +83,19 @@ IOOS TSV files shall use the MIME type registered with the Internet Assigned Num
 ```
 
 
-### **Compression**{: style="color: crimson"}
+### **Compression**
 
 IOOS servers shall offer uncompressed CSV or TSV. Though not required, servers may offer compressed CSV or TSV as well (using gzip, ZIP, etc.). If the CSV or TSV result is compressed the originating server shall indicate this fact using the HTTP Content-Encoding header. Clients should use the HTTP Accept-Encoding mechanism to request compression if desired, being prepared to handle either compressed or uncompressed responses.
 
-### **Number and order of values**{: style="color: crimson"}
+### **Number and order of values**
 
 Every line in a given CSV or TSV response shall have the same number and order of values, with missing values indicated by an empty field (two commas or tabs respectively) or by agreed-upon terms to indicate missing information (e.g., **missing** or **N/A** or **NULL**) in some cases.
 
-### **Header row and initial columns**{: style="color: crimson"}
+### **Header row and initial columns**
 
 The content of this section implies that all data values in a given row are from the same station, sensor, location and time.
 
-#### **CSV Encoding**{: style="color: crimson"}
+#### **CSV Encoding**
 
 The first line of every IOOS CSV response shall comprise a list of column headers that provide names for the values in the following rows. If a value has a unit, it shall be specified in parentheses after the column name. This line is known as the **header row**. All other lines are referred to as **data rows**.
 
@@ -122,7 +122,7 @@ _**depth**_
 <br>
 
 
-#### **TSV Encoding**{: style="color: crimson"}
+#### **TSV Encoding**
 
 The first line of every IOOS TSV response shall comprise a list of column headers that provide names for the values in the following rows separated by a single tab. If a value has a unit, it shall be specified in square brackets [] at the end of the column name (no text is permitted after the closing bracket). This line is known as the **header row.** All other lines are referred to as **data rows**.
 
@@ -149,32 +149,32 @@ _**time_ISO8601**_
 _**depth**_
 :   Depth in meters, positive below the surface of the water.
 
-### **Phenomenon-specific columns**{: style="color: crimson"}
+### **Phenomenon-specific columns**
 
 As discussed in [Conventions for Specific Observed Properties](#conventions-for-specific-observed-properties) below, the remaining fields will depend on the phenomenon, data value type, and sampling feature types. In order to ensure compatibility of CSV and TSV encodings from different servers, the ordering of some mandatory fields for each will be specified in this document for various phenomena. Data providers may offer additional fields after the mandatory fields; their order is not specified here but a name shall be provided for every column in the CSV or TSV response.
 
-### **Use of CF Names**{: style="color: crimson"}
+### **Use of CF Names**
 
 In the header row, names of data values shall use the [Climate and Forecast (CF) Standard Names](http://cf-pcmdi.llnl.gov/documents/cf-standard-names/standard-name-table/12/cf-standard-name-table.html) where possible. The units of the quantity are not required to be the same as the "canonical" CF unit as long as there is a well-known conversion formula from the specified units to the canonical units. Example: The canonical unit of Temperature in CF is Kelvin, but data may be reported in Celsius.
 
-### **Time-dependent metadata**{: style="color: crimson"}
+### **Time-dependent metadata**
 
 Some types of data may include time-dependent metadata associated with each measurement. Example: data on ocean currents that includes pitch, roll and yaw information for the sensor. The general practice shall be to place the principal data values first in each data row, followed by any associated time-dependent metadata.
 
-### **Result Size**{: style="color: crimson"}
+### **Result Size**
 
 IOOS does not impose limits on the number of lines in the CSV or TSV response or values on each line. However, it is good to remember that common spreadsheet applications have a limit of 256 values per row and 65536 rows per sheet.
 
 The CSV as well as TSV response may be compressed (see above under [Compression](#compression) to minimize transmitted file size.
 
-### **Empty Dataset**{: style="color: crimson"}
+### **Empty Dataset**
 
 A CSV or TSV response to a valid request that yielded no data at all (e.g., time range or bounding box did not match any stations) shall contain a header row and zero data rows.
 
 > **NOTE:**
 > This approach differs from the handling of empty datasets in the IOOS GML case. There, if no data corresponds to a query, an OGC Web Service Exception is returned (i.e., a brief XML document explaining     the nature of the problem). The Empty Dataset response proposed here means these CSV and TSV conventions could be applied regardless of whether the data are served by SOS or obtained through other means.
 
-### **Sort Order**{: style="color: crimson"}
+### **Sort Order**
 
 Data from multiple times from a single station shall be sorted in order from earliest time to latest time.
 
@@ -202,7 +202,7 @@ Conceptual illustration:
 ```
 
 
-## **Conventions for Specific Observed Properties**{: style="color: crimson"}
+## **Conventions for Specific Observed Properties**
 
 In the following, the order and title of each IOOS mandatory column is specified. All mandatory columns must be included (with a null value if needed).
 
@@ -216,7 +216,7 @@ Data providers may add additional provider-specific columns. However, if so then
 >A generic document should probably be written for "scalars" and "vectors" at "points" and "profiles," omitting conventions for specific observed properties. However, because column order is  important for quantities with multiple data and metadata values on each row, it is difficult to write a general treatment without considering specific phenomena.
 
 
-### **Temperature**{: style="color: crimson"}
+### **Temperature**
 
 IOOS Mandatory fields:
 
@@ -253,7 +253,7 @@ urn:ioos:station:wmo:41012: urn:ioos:sensor:wmo:41012::watertemp1:  30.04   -80.
 urn:ioos:station:wmo:41012: urn:ioos:sensor:wmo:41012::watertemp1:  30.04   -80.55  2008-08-01T02:50:00Z    0.60    27.60  
 ```
 
-### **Salinity**{: style="color: crimson"}
+### **Salinity**
 
 IOOS Mandatory fields:
 
@@ -287,7 +287,7 @@ urn:ioos:station:wmo:41012: urn:ioos:sensor:wmo:41012::ct1: 30.04   -80.55  2008
 urn:ioos:station:wmo:41012: urn:ioos:sensor:wmo:41012::ct1: 30.04   -80.55  2008-08-01T02:50:00Z    1.00    36.25
 ```
 
-### **Sea Floor Depth (Tsunameter Water Level)**{: style="color: crimson"}
+### **Sea Floor Depth (Tsunameter Water Level)**
 
 IOOS Mandatory fields:
 
@@ -321,7 +321,7 @@ urn:ioos:station:wmo:46403: urn:ioos:sensor:wmo:46403::tsunameter0: 52.65   -156
 urn:ioos:station:wmo:46403: urn:ioos:sensor:wmo:46403::tsunameter0: 52.65   -156.94 2008-07-17T00:30:00Z    4509.435    900
 ```
 
-### **Water Surface Height (Tide Gauge Water Level)**{: style="color: crimson"}
+### **Water Surface Height (Tide Gauge Water Level)**
 
 IOOS Mandatory fields:
 
@@ -366,7 +366,7 @@ urn:x-noaa:def:station:NOAA.NOS.CO-OPS::1617433  urn:x-noaa:def:sensor:NOAA.NOS.
 ```
 
 
-### **Winds**{: style="color: crimson"}
+### **Winds**
 
 IOOS Mandatory fields:
 
@@ -409,7 +409,7 @@ urn:ioos:station:wmo:41012: urn:ioos:sensor:wmo:41012::anemometer1: 30.04   -80.
 urn:ioos:station:wmo:41012: urn:ioos:sensor:wmo:41012::anemometer1: 30.04   -80.55  2008-08-01T02:50:00Z    -5.00   241.0   8.90    10.90
 ```
 
-### **Currents**{: style="color: crimson"}
+### **Currents**
 
 IOOS Mandatory fields:
 
@@ -495,7 +495,7 @@ urn:ioos:station:wmo:42361: urn:ioos:sensor:wmo:42361::adcp0:   27.55   -92.49  
 ```
 <br>
 
-### **Waves**{: style="color: crimson"}
+### **Waves**
 
 Waves data may be reported either using only the list of mandatory fields or by including complete spectral information in the optional fields.
 
