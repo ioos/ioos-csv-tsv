@@ -4,7 +4,7 @@ keywords: sample homepage
 tags: [getting_started]
 toc: false
 #permalink: index.html
-summary: This document describes the conventions used by the Integrated Ocean Observing System (IOOS) program to encode observation data as plain text <b>Comma-Separated Values (CSV)</b> or <b>Tab-Separated Values (TSV)</b>
+summary: Please see the Deprecation Notice below - the convention below was deprecated by IOOS on 2020-01-10 and replaced by guidance found in the IOOS Metadata Profile 1.2  
 ---
 
 <!--  
@@ -12,6 +12,13 @@ summary: This document describes the conventions used by the Integrated Ocean Ob
 {:toc}
 -->
 
+# **Deprecation Notice** 
+
+**Notice:** This convention has been deprecated due to IOOS' transition from the OGC SOS/SWE suite of standards to [ERDDAP](https://coastwatch.pfeg.noaa.gov/erddap) for in situ data dissemination.  
+
+All relevant guidance in this standard has been superceded as of the **2020-01-10** publication date of the [IOOS Metadata Profile 1.2](https://ioos.github.io/ioos-metadata/).  Please refer to the IOOS Metadata Profile for further reference.
+
+The information below is retained only for historical reference purposes.
 
 
 ## **Introduction**
